@@ -1,0 +1,30 @@
+#compdef example
+#autoload
+
+local -a _1st_arguments
+_1st_arguments=(
+  'autocompile:start the autocompiler'
+  'compile:compile items of this site'
+  'create-item:create an item'
+  'create-layout:create a layout'
+  'view:start the web server that serves static files'
+  'watch:start the watcher'
+)
+
+local expl
+local -a pkgs installed_pkgs
+
+_arguments \
+  '(--color)--color[enable color]' \
+  '(--debug)--debug[enable debugging]' \
+  '(--help)--help[show the help message and quit]' \
+  '(--no-color)--no-color[disable color]' \
+  '(--verbose)--verbose[make nanoc output more detailed]' \
+  '(--version)--version[show version information and quit]' \
+  '(--warn)--warn[enable warnings]' \
+  '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "nanoc subcommand" _1st_arguments
+  return
+fi
