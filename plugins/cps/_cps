@@ -1,0 +1,35 @@
+#compdef cps
+#autoload
+
+local -a _1st_arguments
+_1st_arguments=(
+  'help:Print help for a given command'
+  'job:Manage Jobs.'
+  'find:Search the CPS API.'
+  'query:Search the CPS API using either a named query or a file.'
+  'dump-query:Dump a query to JSON.'
+  'run-scenario:Create a new job.'
+  'push-metadata:Push an on-demand metadata change for a subscription.'
+  'cancel-and-replace: Cancel and replace a job.'
+  'owned-slot:Check if slot is owned by CPS.'
+  'list-slots:List all slots.'
+  'parse-request:Parse a CPS request in JSON form, and output YAML.'
+  'replay-request:Replay a CPS request.'
+  'call:Make a generic API call.'
+  'kmi-location-check:Compare live certificate KMI locations in CPS against UMP.'
+  'sign-csr:Sign the CSR for a given job'
+  'update-ump-data:Generate cps-client commands to update UMP data on jobs.'
+)
+
+local expl
+local -a pkgs installed_pkgs
+
+_arguments \
+  '(--host)--host[define host]' \
+  '(--port)--port[define port]' \
+  '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "cps subcommand" _1st_arguments
+  return
+fi
