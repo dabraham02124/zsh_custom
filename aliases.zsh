@@ -76,8 +76,3 @@ function sql3 {
 
 source ~/.aliases &> /dev/null
 
-function vsh { ~/.oh-my-zsh/custom/ab_aliases ssh $*; }
-function gvsh { ~/.oh-my-zsh/custom/ab_aliases gwsh $*; }
-
-function ash  { ~/.oh-my-zsh/custom/ams_aliases ssh $*; }
-function gsh { ~/.oh-my-zsh/custom/ams_aliases gwsh $*; }
