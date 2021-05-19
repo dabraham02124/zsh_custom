@@ -5,16 +5,10 @@ local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 #_prompt_and_resched
 #TIME="%D{%H:%M:%S}"
 
-PROMPT='${ret_status}%{$fg_bold[blue]%}$#jobstates %{$fg_bold[green]%}%n@%m %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PROMPT='%{$reset_color%}${ret_status}%{$fg_bold[blue]%}$#jobstates %{$fg_bold[green]%}%n@%m %{$fg[cyan]%}%t %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%}> '
 
 #RPROMPT='%{$fg[cyan]%}$TIME %{$fg[cyan]%}%~ %{$reset_color%}'
-#time at prompt creation, and path with ~
-RPROMPT='%{$fg[cyan]%}%t %{$fg[cyan]%}%~ %{$reset_color%}'
-#RPROMPT='%{$fg[cyan]%}%D{%L:%M:%S %p} %{$fg[cyan]%}%~ %{$reset_color%}'
-#TMOUT=1
-#TRAPALRM() {
-#    zle reset-prompt
-#}
+#RPROMPT='%{$fg[cyan]%}%t %{$fg[cyan]%}%~ %{$reset_color%}'
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
